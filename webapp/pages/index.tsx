@@ -5,7 +5,7 @@ import type { NextPage } from "next";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { GreeterFactory } from "../types/ethers-contracts";
+import { Greeter__factory } from "../types/ethers-contracts";
 
 const greeterContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
@@ -36,7 +36,10 @@ const GreeterPage: NextPage = () => {
   const fetchGreeting = useCallback(async () => {
     if (connectedProvider) {
       const provider = new ethers.providers.Web3Provider(connectedProvider);
-      const contract = GreeterFactory.connect(greeterContractAddress, provider);
+      const contract = Greeter__factory.connect(
+        greeterContractAddress,
+        provider
+      );
       try {
         const data = await contract.greet();
         setGreeting(data);
@@ -56,7 +59,7 @@ const GreeterPage: NextPage = () => {
     if (connectedProvider) {
       const provider = new ethers.providers.Web3Provider(connectedProvider);
       const signer = provider.getSigner();
-      const contract = GreeterFactory.connect(greeterContractAddress, signer);
+      const contract = Greeter__factory.connect(greeterContractAddress, signer);
       const transaction = await contract.setGreeting(newGreeting);
       await transaction.wait();
       await fetchGreeting();
