@@ -35,3 +35,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# compiled smart contract types. these are build files and they should be regenerated
+types/ethers-contracts
