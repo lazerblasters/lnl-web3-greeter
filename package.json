@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "root",
+  "version": "1.0.0",
+  "description": "Sample monorepo showing how to hold frontend code with smart contract code in the same git repo",
+  "workspaces": {
+    "packages": [
+      "webapp",
+      "smart-contract"
+    ],
+    "nohoist": [
+      "**/hardhat",
+      "**/hardhat/**",
+      "**/solidity-coverage",
+      "**/solidity-coverage/**"
+    ]
+  },
+  "keywords": [],
+  "author": "Andre Jodat-Danbrani",
+  "license": "MIT"
+}
