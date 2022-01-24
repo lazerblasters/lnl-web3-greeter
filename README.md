@@ -25,3 +25,20 @@ Remember you need this piece of config to make MetaMask play nice with your loca
 ```
 
 Speaking of MetaMask, if you get cryptic unexplainable errors while trying to get your frontend to connect to the local chain, it's possibly because you need to reset your MetaMask wallet. Go to My Accounts -> Settings -> Advanced and click Reset Account. This should fix it up.
+
+This block for hoisting is important, Hardhat doesn't play nice in monorepos right now:
+
+```
+  "workspaces": {
+    "packages": [
+      "webapp",
+      "smart-contract"
+    ],
+    "nohoist": [
+      "**/hardhat",
+      "**/hardhat/**",
+      "**/solidity-coverage",
+      "**/solidity-coverage/**"
+    ]
+  },
+```
