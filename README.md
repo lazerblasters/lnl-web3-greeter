@@ -2,6 +2,8 @@
 
 Howdy, the purpose of this example repo is to show you how you can connect a simple "greeter" smart contract with a frontend and achieve full type-safety while interfacing with your contract.
 
+**DISCLAIMER** Much of this was adapted from the work of Nader Dabit, whose guide I found to be very helpful: https://dev.to/dabit3/the-complete-guide-to-full-stack-ethereum-development-3j13
+
 ## Installation
 
 1. Clone this repo
